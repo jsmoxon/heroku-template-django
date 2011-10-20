@@ -1,0 +1,8 @@
+{% extends "profiles/profiles_base.html" %}
+{% block content %}
+<h1>Create Profile</h1>
+    <form method="post" action="{% url profiles_create_profile %}">
+	{% csrf_token %}
+	{{form}}
+	<input type="submit" name="post" class="submit-post" value="Post">
+{% endblock content %}

@@ -1,0 +1,10 @@
+*.pyc
+*/*.pyc
+*.py~
+*/*.py~
+*#
+static/*
+*/migrations
+constants.py
+.DS_STORE
+*.db

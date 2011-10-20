@@ -1,0 +1,31 @@
+{% load static %}
+<html>
+<head>
+    <title>
+        Balanceer
+    </title>
+    <link rel="stylesheet" type="text/css" href="{%  get_static_prefix %}css/style.css" />
+</head>
+<body>
+<header>
+    <div id="header_title">
+        <a href="/">
+            Balanceer
+        </a>
+    </div>
+    <navigation>
+        {% include "base/navigation.html" %}
+    </navigation>
+    {% include "accounts/login_logout.html" %}
+</header>
+<section id="content">
+        {% block content %}
+        {%  endblock content %}
+</section>
+<footer>
+     <div id="logo">
+        <img src="{% get_static_prefix %}images/spreadsheet.png" alt="logo" />
+    </div>
+</footer>
+</body>
+</html>

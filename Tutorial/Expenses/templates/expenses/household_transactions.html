@@ -1,0 +1,82 @@
+{% extends "expenses/expenses_base.html" %}
+{% block content %}
+    {% load expenses %}
+    <h1>
+    Transactions for <span class="household_name"><a href="{% url household household.pk %}">{{ household.name }}</a></span>
+    </h1>
+    {% render_household_transaction_create household %}
+    <table class="transaction_table">
+    <tr>
+    <th>
+        Edit
+    </th>
+        <th>
+            Date
+        </th>
+    <th>
+        Transactor
+    </th>
+    <th>
+        Cost
+    </th>
+    <th>
+        Tax
+    </th>
+        {% for person in household.persons|order_by:"name" %}
+        <th>
+            {{ person.name }}
+        </th>
+        {% endfor %}
+    </tr>
+    {% for transaction in transactions %}
+        <tr>
+        <td>
+            <a href="{% url transaction_edit transaction.pk %}">
+                Edit
+            </a>
+        </td>
+            <td>
+                {{ transaction.creation_date|date:"D d M Y" }}
+            </td>
+        <td>
+            <a href="{% url person transaction.transactor.pk %}">
+                {{ transaction.transactor }}
+            </a>
+        </td>
+        <td>
+            {{ transaction.cost_dollar }}
+        </td>
+        <td>
+            {{ transaction.tax_percent }}
+        </td>
+            {% for multiplier in transaction.multiplier_set|order_by:"person__name" %}
+                <td>
+                    {{ multiplier.multiplier_percent }}
+                </td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+
+    <h2>Balance</h2>
+    <table class="balance_table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Balance
+        </th>
+    </tr>
+    {% for person in household.balance %}
+    <tr>
+        <td>
+            {{ person.name }}
+        </td>
+        <td>
+            {{ person.balance }}
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+{% endblock content %}

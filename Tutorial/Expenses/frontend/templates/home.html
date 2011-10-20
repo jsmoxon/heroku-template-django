@@ -1,0 +1,21 @@
+{% extends "base/base.html" %}
+{%  block content %}
+{% load expenses %}
+<div class="household_create_link">
+    <a href="{% url household_create %}">
+        Create New Household
+    </a>
+</div>
+<h1>
+Households
+</h1>
+<ul>
+{% for household in user.person_set.all.0.household_set.all %}
+    <li>
+        {% render_household_pv household %}
+    </li>
+{% endfor %}
+</ul>
+</section>
+
+{%  endblock content %}

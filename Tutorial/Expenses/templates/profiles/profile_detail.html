@@ -1,0 +1,27 @@
+{% extends "profiles/profiles_base.html" %}
+{% block content %}
+<div id="profileInfo">
+	{% for person in profile.user.person_set.all %}
+		<a href="{% url person person.pk %}">{{person}}'s expenses</a>
+	{% endfor %}
+	<hr>
+    <h1>{{ profile.user }}</h1>
+    <br/>
+    {% if not noProfile %}
+        <a href="{% url profiles_edit_profile %}">change name</a>
+        <h2>Profile</h2>
+    <ul>
+        <li>
+            <b>User:</b>
+            {{ profile.user }}
+        </li>
+        <li>
+            <b>Name: </b>
+            {{ profile.name }}
+        </li>
+    </ul>
+    {% else %}
+    This user does not have a profile yet!
+    {% endif %}
+</div>
+{%  endblock content %}

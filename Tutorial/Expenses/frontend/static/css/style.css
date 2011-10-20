@@ -1,0 +1,75 @@
+html {
+    font-family: courier;
+}
+
+header {
+    border:  4px ridge gray;
+/*    box-shadow: 10px 10px 5px black; */
+    margin:  20px;
+    padding:  30px;
+    height: 70px;
+	border-radius: 25px;
+}
+
+header #header_title {
+    font-size: 50;
+    float: left;
+}
+
+header #header_title a {
+    text-decoration: none;
+    color: black;
+}
+header navigation {
+    float: right;
+}
+
+header #login_logout {
+    float: right;
+}
+
+footer #logo {
+    float:right;
+}
+
+.household {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 20px;
+}
+
+body, #content {
+    padding: 40px;
+    padding-top: 10px;
+}
+
+body {
+    background-color: #6ad;
+}
+
+#content, header, footer {
+    background-color: #48b;
+}
+
+
+table, th, td {
+	border: 1px solid black;
+    text-align: center;
+    margin: 10px;
+}
+
+.household_name a, .household_name{
+    color: #eeddcc;
+    text-decoration: none;
+}
+
+.household_header {
+    color: #eeddcc;
+}
+
+.person_header {
+    border: 1px solid black;
+	text-align: center;
+	font-size: 25px; 
+	border-radius: 10px;
+}

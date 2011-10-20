@@ -1,0 +1,8 @@
+{% extends "expenses/expenses_base.html" %}
+{% block content %}
+<form method="POST" action="">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Create New Household">
+</form>
+{% endblock content %}

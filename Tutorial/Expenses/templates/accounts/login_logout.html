@@ -1,0 +1,16 @@
+<span id="login_logout">
+    {% if not user.is_anonymous %}
+        <a href="{% url profiles_profile_detail user.username %}">
+        {{ user }}: Profile
+    </a>
+    <br />
+    <a href="{% url auth_logout %}">
+        Logout
+    </a>
+    {% else %}
+    <a href="{% url auth_login %}">
+        Login or Register
+    </a>
+    {%  endif %}
+</span>
+
